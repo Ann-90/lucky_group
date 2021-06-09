@@ -80,6 +80,8 @@
 			let select = document.querySelector("select");
 			let body = document.querySelector("body");
 			let gap = window.screen < 1280 ? "40px" : "50px";
+			let background = `background: url('/public/flag.svg') no-repeat ${gap} #f8f8f8; background-size: 26px;`;
+			let backgroundUSA = `background: url('/public/flag_usa.svg') no-repeat ${gap} #f8f8f8; background-size: 26px;`;
 
 			window.addEventListener("resize", (event) => {
 				gap = body.clientWidth < 1280 ? "40px" : "50px";
@@ -87,10 +89,7 @@
 
 			select.addEventListener("change", (event) => {
 				let currentFlag = event.currentTarget.options.selectedIndex;
-				select.style =
-					currentFlag === 0
-						? `background: url('/public/flag.svg') no-repeat ${gap} #f8f8f8;`
-						: `background: url('/public/flag_usa.png') no-repeat ${gap} #f8f8f8;`;
+				select.style = currentFlag === 0 ? background : backgroundUSA;
 			});
 		</script>
 	</body>
